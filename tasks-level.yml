@@ -1,0 +1,11 @@
+- name: vars level
+  hosts: web
+  vars: 
+    name: play-level
+  tasks:
+   - name: play-1
+     vars:
+       name: task-level
+     ansible.builtin.debug:
+       msg: " {{ name}} "
+   
