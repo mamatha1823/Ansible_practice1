@@ -3,8 +3,13 @@
   vars:
     Emp: "Mamatha"
     city: "Hyderabad"
+  vars_prompt:
+    - name: Application
+      prompt: please enter the course
+      private: false
      
   tasks: 
    - name: variables
      ansible.builtin.debug:
-      msg: "{ Emp name is {{ Emp }} city is {{ city }} }"
+      msg: "{ Emp name is {{ Emp }} city is {{ city }} {{Application}}  }"
+      
