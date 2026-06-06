@@ -2,13 +2,13 @@
   hosts: web
   tasks: 
    - name: play-1 task-1
-     tag: 
+     tags: 
       - trail1
      ansible.builtin.debug:
       msg: "this is from play1 task1"
 
    - name: play2 task2 
-     tag:
+     tags:
       - trail2
      ansible.builtin.debug:
       msg: "this is from play2 task2"
