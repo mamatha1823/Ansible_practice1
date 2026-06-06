@@ -1,0 +1,10 @@
+- name: variables
+  hosts: web
+  vars:
+    name: "Mamatha"
+    city: "Hyderabad"
+     
+  tasks: 
+   - name: variables
+     ansible.builtin.debug:
+      msg: "{ name is {{ name }} city is {{ city }} }"
