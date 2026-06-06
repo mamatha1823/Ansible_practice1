@@ -1,0 +1,8 @@
+- name: var-files
+  hosts: web
+  vars:
+    - variable.yml
+  tasks:
+   - name: var-files
+     ansible.builtin.debug:
+      msg: " { hello {{ emp }} } "
