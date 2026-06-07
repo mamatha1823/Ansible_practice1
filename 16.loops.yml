@@ -1,0 +1,12 @@
+- name: install Apps with Loops
+  hosts: web 
+  become: yes 
+  tasks:  
+  - name: install Apps
+    ansiible.builtin.package:
+     name: {{ item }}
+     state: installed
+  loop:
+    - mysql
+    - nginx
+    - httpd

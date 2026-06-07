@@ -1,0 +1,11 @@
+- name: command vs shell 
+  hosts: local
+  connection: local
+  tasks: 
+   - name: command 
+     ansible.builtin.command: ls -ltr
+     register: output
+
+   - name: shell
+     ansible.builtin.shell: ps -ef | grep -i nginx
+     register: output1

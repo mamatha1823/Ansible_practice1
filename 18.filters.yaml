@@ -1,0 +1,46 @@
+- name: handling the undeclared variables
+  hosts: local
+  tasks:
+   - name: to handle the variables with default variables
+     ansible.builtin.debug:
+      msg: " Hello {{ greeting | default ('morning') }}"
+   - name: to handle the variables to upper
+     vars:
+       greeting: "Hi how are you"
+     ansible.builtin.debug:
+      msg: " Hello {{ greeting | upper }}"
+   - name: to handle the variables with default variables
+     vars:
+       greeting: "Hi how are you"
+     ansible.builtin.debug:
+      msg: " Hello {{ greeting | lower }}"
+   - name: to handle the variables with default variables
+     vars: 
+       number: [ 1,5,9,23,1,5,9]
+     ansible.builtin.debug:
+      msg: " {{ number | unique }} "
+   - name: to handle the variables with default variables
+     vars: 
+       number: [ 1,5,9,23,1,5,9]
+     ansible.builtin.debug:
+      msg: " Min {{ number | min }} ; Max {{ number | max }} "
+   - name: to handle the variables with  dict to list 
+     vars: 
+       Details:
+       course: "ansible"
+       owned by : "redhat"
+     ansible.builtin.debug:
+      msg: " {{ Details | dict2items }} "
+   - name: to handle variables list to  map 
+     vars: 
+       Details:
+       - { key: "course ", value: "ansible" }
+       - { key:  "owned by", value: "Redhat"}
+     ansible.builtin.debug:
+      msg: " {{ Details | items2dict }} "
+   - name: to handle the valid ip address
+     vars:
+      my_ip: 52.206.145.238
+     ansible.buitin.debug:
+       msg: " {{ my_ip | ansible.utils.ipv4 }}"
+

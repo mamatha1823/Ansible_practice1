@@ -1,0 +1,16 @@
+- name: user info check
+  connection: local
+  hosts: local
+  become: yes # for  creation of any  thing you need to become root -b in adhoc commands 
+  tasks: 
+   - name: user info
+     ansible.builtin.command: id additive # Ansible doesn't have the modules for all  so we can use command module to execute the unix simple commands. 
+     register: USER # Here register catches the result of the above executed command into the variable
+     ignore_errors: true
+     #here it ignores the errors so as a part of error handling 
+   - name: user check
+     ansible.builtin.debug:
+      msg: "user info is {{ USER }} "
+   - name: to create the user if not created 
+     ansible.builtin.command: useradd additive
+     when: USER_rc!=0

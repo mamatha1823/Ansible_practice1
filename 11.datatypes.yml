@@ -1,0 +1,27 @@
+- name: datatype
+  hosts: local
+  vars:
+    city: "Hyderabad"
+  Customers:
+   - Neha
+   - Mamatha
+   - Kishore
+   - Hansi
+   - Riyansh
+
+  Tools:
+    ci: Jenkins
+    orchestration:
+     - xlr
+     - k8s
+    scm:
+     - github
+     - bitbucket
+    CM: ansible
+    Cloud: AWS
+    
+  
+  tasks:
+    - name: datatypes
+      ansible.builtin.debug:
+       msg: " the details of customers is : {{ Customers }} , city is {{ city }} and tools are : {{tools}} "

@@ -1,0 +1,6 @@
+- name: var from arg
+  hosts: web
+  tasks: 
+    - name: var from arg
+      ansible.builtin.debug:
+       msg: " values from the arg {{ arg1 }} and  {{ arg2 }}
