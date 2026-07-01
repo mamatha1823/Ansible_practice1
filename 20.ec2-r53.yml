@@ -33,7 +33,7 @@
    # create r53 records 
    - name: create r53 records
      ansible.aws.route53:
-      zone: {{ zone }}
+      zone: "{{ zone }}"
       type: A
       wait: true
       ttl: 1
