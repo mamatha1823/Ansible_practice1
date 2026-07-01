@@ -2,7 +2,7 @@
   hosts: web
   vars:
     subnet_id: "subnet-09d1fc3d8d50f747b"
-    sg_id: "sg-033d1dbab6efbdc59"
+    sg_id: "sg-03f86b11835e06e4d"
     ami_id: "ami-0220d79f3f480ecf5"
     instances:
     - mysql
