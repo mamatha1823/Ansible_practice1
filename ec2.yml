@@ -34,10 +34,10 @@
 
       register: ec2_info
 
-      name: Display Instance Details
+    - name: Display Instance Details
       debug:
        msg:
         - "Instance ID : {{ item.instance_id }}"
         - "Private IP  : {{ item.private_ip_address }}"
         - "Public IP   : {{ item.public_ip_address }}"
-      loop:"{{ec2_info.instances}}"
+      loop: "{{ec2_info.instances}}"
