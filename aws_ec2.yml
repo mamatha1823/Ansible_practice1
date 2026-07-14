@@ -14,7 +14,7 @@
   regions:
     - us-east-1
   filters:
-    "tag:Name": ec2
+    "tag:Name": Ansible
     instance-state-name: terminated
   hostnames:
     - private-ip-address
