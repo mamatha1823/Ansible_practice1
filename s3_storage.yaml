@@ -17,6 +17,6 @@
    - name: to store an object 
      amazon.aws.s3_object:
         name: "{{bucket_name}}"
-        object_key: {{object_key}}"
+        object_key: "{{object_key}}"
         src : "{{local_file}}"
-        mode:put
+        mode: put
