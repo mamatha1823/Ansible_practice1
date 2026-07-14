@@ -17,18 +17,17 @@
     - name: Launch EC2 Instance
       amazon.aws.ec2_instance:
          exact_count: 3 #to achieve the idempotency#
-      filters:
-        "tag:Name": webserver
-        instance_state_name: running
-      region: us-east-1
-      image_id: ami-0220d79f3f480ecf5
-      instance_type: t3.micro
-      vpc_subnet_id: subnet-0beebc816f98985ad
-      security_group: sg-06184d2938aaa1383
-        
-      wait: true
+         filters:
+          "tag:Name": webserver
+          instance_state_name: running
+         region: us-east-1
+         image_id: ami-0220d79f3f480ecf5
+         instance_type: t3.micro
+         vpc_subnet_id: subnet-0beebc816f98985ad
+         security_group: sg-06184d2938aaa1383
+         wait: true
 
-      tags:
+         tags:
           Name: webserver
           Environment: Dev
           Owner: DevOps
