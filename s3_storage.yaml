@@ -21,7 +21,7 @@
   #       src : "{{local_file}}"
   #       mode: put
    - name: to list the object
-     amazon.aws.s3_object:
+     amazon.aws.s3_object_list:
         bucket: "{{bucket_name}}"
         mode: list
      register: output
