@@ -1,5 +1,5 @@
 - name: s3 bucket creation and storing of an object 
-  hosts: local
+  hosts: localhost
   connection: local
   gather_facts: false
   vars:
@@ -16,7 +16,7 @@
         state: present
    - name: to store an object 
      amazon.aws.s3_object:
-        name: "{{bucket_name}}"
-        object_key: "{{object_key}}"
+        bucket: "{{bucket_name}}"
+        object: "{{object_key}}"
         src : "{{local_file}}"
         mode: put
