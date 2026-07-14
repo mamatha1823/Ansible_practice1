@@ -27,6 +27,7 @@
     - name: Display Instance Details
       debug:
         msg:
-          - "Instance ID : {{ ec2_info.instances[0].instance_id }}"
-          - "Private IP  : {{ ec2_info.instances[0].private_ip_address }}"
-          - "Public IP   : {{ ec2_info.instances[0].public_ip_address }}"
+          - "Instance ID : {{ item.instance_id }}"
+          - "Private IP  : {{ item.private_ip_address }}"
+          - "Public IP   : {{ item.public_ip_address }}"
+      loop:"{{ec2_info.instances}}"
