@@ -1,0 +1,32 @@
+- name: Create EC2 Instance
+  hosts: localhost
+  connection: local
+  gather_facts: false
+  count: 3
+  tasks:
+
+    - name: Launch EC2 Instance
+      amazon.aws.ec2_instance:
+        name: webserver
+        region: us-east-1
+        image_id: ami-0220d79f3f480ecf5
+        instance_type: t3.micro
+        vpc_subnet_id: subnet-0beebc816f98985ad
+        security_group: sg-06184d2938aaa1383
+        state: running
+        wait: true
+
+        tags:
+          Name: webserver
+          Environment: Dev
+          Owner: DevOps
+          Project: Banking
+
+      register: ec2_info
+
+    - name: Display Instance Details
+      debug:
+        msg:
+          - "Instance ID : {{ ec2_info.instances[0].instance_id }}"
+          - "Private IP  : {{ ec2_info.instances[0].private_ip_address }}"
+          - "Public IP   : {{ ec2_info.instances[0].public_ip_address }}"
