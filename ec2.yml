@@ -2,7 +2,6 @@
   hosts: localhost
   connection: local
   gather_facts: false
-  count: 3
   tasks:
 
     - name: Launch EC2 Instance
@@ -13,6 +12,7 @@
         instance_type: t3.micro
         vpc_subnet_id: subnet-0beebc816f98985ad
         security_group: sg-06184d2938aaa1383
+        count: 3
         state: running
         wait: true
 
