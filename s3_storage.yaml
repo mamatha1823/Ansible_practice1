@@ -1,0 +1,22 @@
+- name: s3 bucket creation and storing of an object 
+  hosts:local
+  connection: local
+  gather_facts: false
+  vars:
+     bucket_name: iib_test
+     region: us-east-1
+     local_file: /tmp/app.log
+     object_key: logs/app.log
+  
+  tasks:
+   - name: to create a S3 bucket
+     amazon.aws.s3_bucket:
+        name: "{{bucket_name}}"
+        region: "{{region}}"
+        state: present
+   - name: to store an object 
+     amazon.aws.s3_object:
+        name: "{{bucket_name}}"
+        object_key: {{object_key}}"
+        src : "{{local_file}}"
+        mode:put
