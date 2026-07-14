@@ -16,7 +16,7 @@
     # register: ec2_info
     - name: Launch EC2 Instance
       amazon.aws.ec2_instance:
-         exact_count:3 #to achieve the idempotency#
+         exact_count: 3 #to achieve the idempotency#
       filters:
         "tag:Name": webserver
         instance_state_name: running
