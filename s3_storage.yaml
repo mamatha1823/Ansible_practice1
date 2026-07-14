@@ -1,5 +1,5 @@
 - name: s3 bucket creation and storing of an object 
-  hosts:local
+  hosts: local
   connection: local
   gather_facts: false
   vars:
