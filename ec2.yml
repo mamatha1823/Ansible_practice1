@@ -16,6 +16,7 @@
     # register: ec2_info
     - name: Launch EC2 Instance
       amazon.aws.ec2_instance:
+        exact_count:3 #to achieve the idempotency#
         name: webserver
         region: us-east-1
         image_id: ami-0220d79f3f480ecf5
