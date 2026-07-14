@@ -3,7 +3,7 @@
   connection: local
   gather_facts: false
   vars:
-     bucket_name: iib_test
+     bucket_name: iib-test
      region: us-east-1
      local_file: /tmp/app.log
      object_key: logs/app.log
