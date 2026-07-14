@@ -15,7 +15,7 @@
     - us-east-1
   filters:
     "tag-Name": ec2
-    instance-running-state: terminated
+    instance-state-name: terminated
   hostnames:
     - private-ip-address
   compose:
