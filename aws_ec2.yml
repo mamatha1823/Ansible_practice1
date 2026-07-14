@@ -1,9 +1,9 @@
 plugin: amazon.aws.aws_ec2
 regions: 
- - us-east-1c
+ - us-east-1
 filters:
-  tag:Name: ec2
-  instance_state: running
+  "tag:Name": ec2
+  instance_state-name: running
 hostnames:
  - private_ip_address
 compose:
