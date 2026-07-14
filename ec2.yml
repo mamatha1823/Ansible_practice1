@@ -1,4 +1,4 @@
-- name: Create EC2 Instance
+- name: display EC2 Instance
   hosts: localhost
   connection: local
   gather_facts: false
