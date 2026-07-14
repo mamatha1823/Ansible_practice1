@@ -1,10 +1,22 @@
-plugin: amazon.aws.aws_ec2
-regions: 
- - us-east-1
-filters:
-  "tag:Name": ec2
-  instance-state-name: running
-hostnames:
- - private-ip-address
-compose:
-  ansible_host:  private-ip-address
+# plugin: amazon.aws.aws_ec2
+# regions: 
+#  - us-east-1
+# filters:
+#   "tag:Name": ec2
+#   instance-state-name: running
+# hostnames:
+#  - private-ip-address
+# compose:
+#   ansible_host:  private-ip-address
+
+
+  plugin: amazon.aws.aws_ec2
+  regions:
+    - us-east-1
+  filters:
+    "tag-Name": ec2
+    instance-running-state: terminated
+  hostnames:
+    - private-ip-address
+  compose:
+    ansible_host: private-ip-address
