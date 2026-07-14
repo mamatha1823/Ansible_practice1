@@ -3,7 +3,17 @@
   connection: local
   gather_facts: false
   tasks:
-
+    plugin: amazon.aws.aws_ec2
+    region:
+      - us-east-1
+    filters:
+     "tag:Name": webserver
+     instance-state-name: running
+    hostnames:
+      - private-ip-address
+    compose:
+       ansible_host: private_ip_address
+    register: ec2_info
     # - name: Launch EC2 Instance
     #   amazon.aws.ec2_instance:
     #     name: webserver
@@ -24,11 +34,11 @@
 
     #   register: ec2_info
 
-    - name: Display Instance Details
-      debug:
-        msg:
-          - "Instance ID : {{ item.instance_id }}"
-          - "Private IP  : {{ item.private_ip_address }}"
-          - "Public IP   : {{ item.public_ip_address }}"
-      loop:
-        - "{{ec2_info.instances}}"
+    name: Display Instance Details
+    debug:
+       msg:
+        - "Instance ID : {{ item.instance_id }}"
+        - "Private IP  : {{ item.private_ip_address }}"
+        - "Public IP   : {{ item.public_ip_address }}"
+    loop: 
+       - "{{ec2_info.instances}}"
