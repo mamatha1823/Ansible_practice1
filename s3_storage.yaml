@@ -26,6 +26,6 @@
         mode: list
      register: output
 
-  -  name: to list object 
-     debug: 
+   -  name: to list object 
+      debug: 
        vars: output        
