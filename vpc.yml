@@ -7,10 +7,10 @@
     region: us-east-1
   
   tasks:
-  - name: crearte vpc
+  - name: create vpc
     amazon.aws.ec2_vpc_net:
      name: "{{vpc_name}}"
-     cidr: "{{cidr}}"
+     cidr_block: "{{cidr}}"
      region: "{{region}}"
      dns_hostnames: true
      dns_support: true
