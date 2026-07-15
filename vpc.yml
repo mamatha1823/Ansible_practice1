@@ -14,7 +14,7 @@
      region: "{{region}}"
      dns_hostnames: true
      dns_support: true
-     state: present
+     state: absent
     register: output
   - name: display the vpc info of vpc
     debug:
